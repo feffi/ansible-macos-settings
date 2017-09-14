@@ -1,0 +1,10 @@
+---
+- name: "Enable sudden motion sensor"
+  become: true
+  command: "pmset -a sms 1"
+  when: macos_settings.sudden_motion_sensor
+
+- name: "Disable sudden motion sensor"
+  become: true
+  command: "pmset -a sms 0"
+  when: not macos_settings.sudden_motion_sensor

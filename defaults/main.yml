@@ -1,0 +1,68 @@
+---
+macos_settings:
+  # Set standby delay in seconds, default = 3600, 24 hours = 86400, disabled = false
+  standby_delay: 86400
+
+  # Set system boot up chime volume
+  boot_volume: false #"00%"
+
+  # Remove duplicates in the “Open With” menu
+  remove_duplicates: true
+
+  # Restart automatically if the computer freezes
+  restart_on_freeze: true
+
+  # Never go into computer sleep mode
+  sleep_delay: "Never"
+
+  # Disable Notification Center and remove the menu bar icon
+  notification_center: false
+
+  # Disable local Time Machine snapshots
+  local_timemachine: false
+
+  # Set hibernate mode:
+  # hibernatemode = 0 (binary 0000) by default on supported desktops. The system will not back memory up to
+  #   persistent storage. The system must wake from the contents of memory; the system will lose context on
+  #   power loss. This is, historically, plain old sleep.
+  #
+  # hibernatemode = 3 (binary 0011) by default on supported portables. The system will store a copy of mem-ory memory
+  #   ory to persistent storage (the disk), and will power memory during sleep. The system will wake from
+  #   memory, unless a power loss forces it to restore from disk image.
+  #
+  # hibernatemode = 25 (binary 0001 1001) is only settable via pmset. The system will store a copy of mem-ory memory
+  #   ory to persistent storage (the disk), and will remove power to memory. The system will restore from
+  #   disk image. If you want "hibernation" - slower sleeps, slower wakes, and better battery life, you
+  #   should use this setting.
+  hibernate_mode: 0
+
+  # Remove the sleep image file to save disk space
+  remove_sleepimage: false
+
+  # Enable or disable sudden motion sensor (not userfull on SSD/Flash drives)
+  sudden_motion_sensor: false
+
+  # Set the timezone; see `systemsetup -listtimezones` for other values
+  timezone: "Europe/Berlin"
+
+  # Start/stop iTunes listening to the keyboard media keys
+  itunes_media_keys: true
+
+  # Show the ~/Library folder
+  hide_library_folder: false
+
+  # Enable the MacBook Air SuperDrive on any Mac
+  superdrive: true
+
+
+
+
+
+
+
+
+
+
+
+
+

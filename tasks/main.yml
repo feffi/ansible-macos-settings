@@ -1,0 +1,10 @@
+---
+- debug:
+    msg: "{{ vars[(role_path | basename).split('.')[-1].replace('-','_').replace('ansible_','')] }}"
+  when: DEBUG | d() | bool
+
+- include: boot.yml
+- include: hardware.yml
+- include: sleep.yml
+- include: services.yml
+- include: utils.yml

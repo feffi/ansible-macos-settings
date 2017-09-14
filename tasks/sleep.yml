@@ -1,0 +1,35 @@
+---
+- name: "Set standby delay to {{ macos_settings.standby_delay }} seconds."
+  become: true
+  command: "pmset -a standbydelay {{ macos_settings.standby_delay }}"
+  when: not macos_settings.standby_delay
+
+- name: "Set deep sleep delay to {{ macos_settings.sleep_delay }}"
+  become: true
+  command: "systemsetup -setcomputersleep {{ macos_settings.sleep_delay }} > /dev/null"
+  when: macos_settings.sleep_delay
+
+- name: "Set hibernation mode to {{ macos_settings.hibernate_mode }}"
+  become: true
+  command: "pmset -a hibernatemode {{ macos_settings.hibernate_mode }}"
+  when: macos_settings.hibernate_mode in [0, 3, 25]
+
+- name: "Unsupported hibernation mode {{ macos_settings.hibernate_mode }}, must be 0, 3, 25"
+  debug:
+    msg: "Unsupported hibernation mode {{ macos_settings.hibernate_mode }}, must be 0, 3, 25"
+  when: macos_settings.hibernate_mode not in [0, 3, 25]
+
+- name: "Remove the sleep image file to save disk space"
+  become: true
+  command: "rm /private/var/vm/sleepimage"
+  when: macos_settings.remove_sleepimage
+
+- name: "Create a zero-byte file instead..."
+  become: true
+  command: "touch /private/var/vm/sleepimage"
+  when: macos_settings.remove_sleepimage
+
+- name: "...and make sure it can't be rewritten"
+  become: true
+  command: "chflags uchg /private/var/vm/sleepimage"
+  when: macos_settings.remove_sleepimage
