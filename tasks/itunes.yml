@@ -1,0 +1,10 @@
+---
+- name: "Start iTunes listening to the keyboard media keys"
+  become: true
+  command: "launchctl load -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null"
+  when: macos_settings.itunes_media_keys
+
+- name: "Stop iTunes listening to the keyboard media keys"
+  become: true
+  command: "launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null"
+  when: not macos_settings.itunes_media_keys

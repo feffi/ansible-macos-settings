@@ -1,0 +1,25 @@
+---
+- name: "Hide Spotlight tray-icon"
+  become: true
+  command: "chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
+  when: macos_settings.spotlight_hide_tray_icon
+
+- name: "Show Spotlight tray-icon"
+  become: true
+  command: "chmod 755 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
+  when: not macos_settings.spotlight_hide_tray_icon
+
+- name: "Load new settings before rebuilding the index"
+  become: true
+  command: "killall mds > /dev/null 2>&1"
+  when: macos_settings.spotlight_reindex
+
+- name: "Enable indexing for the main volume"
+  become: true
+  command: "mdutil -i on / > /dev/null"
+  when: macos_settings.spotlight_reindex
+
+- name: "Trigger rebuild the index from scratch"
+  become: true
+  command: "mdutil -E / > /dev/null"
+  when: macos_settings.spotlight_reindex

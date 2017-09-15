@@ -1,15 +1,5 @@
 ---
-- name: Remove duplicates in the 'Open With' menu (also see 'lscleanup' alias)
+- name: "Set the timezone to {{ macos_settings.timezone }}"
   become: true
-  command: "/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
-  when: macos_settings.remove_duplicates
-
-- name: "Show the ~/Library folder"
-  become: true
-  command: "chflags nohidden ~/Library"
-  when: not macos_settings.hide_library_folder
-
-- name: "Hide the ~/Library folder"
-  become: true
-  command: "chflags hidden ~/Library"
-  when: macos_settings.hide_library_folder
+  command: 'systemsetup -settimezone "{{ macos_settings.timezone }}" > /dev/null'
+  when: macos_settings.timezone

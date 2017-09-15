@@ -8,28 +8,3 @@
   become: true
   command: "launchctl load -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null"
   when: macos_settings.notification_center
-
-- name: "Disable local Time Machine snapshots"
-  become: true
-  command: "tmutil disablelocal"
-  when: not macos_settings.disable_local_timemachine
-
-- name: "Enable local Time Machine snapshots"
-  become: true
-  command: "tmutil enablelocal"
-  when: macos_settings.local_timemachine
-
-- name: "Set the timezone to {{ macos_settings.timezone }}"
-  become: true
-  command: 'systemsetup -settimezone "{{ macos_settings.timezone }}" > /dev/null'
-  when: macos_settings.timezone
-
-- name: "Start iTunes listening to the keyboard media keys"
-  become: true
-  command: "launchctl load -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null"
-  when: macos_settings.itunes_media_keys
-
-- name: "Stop iTunes listening to the keyboard media keys"
-  become: true
-  command: "launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null"
-  when: not macos_settings.itunes_media_keys

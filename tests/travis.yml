@@ -4,6 +4,21 @@
   vars:
     DEBUG: true
     macos_settings:
-      
+      standby_delay: 86400
+      boot_volume: false
+      remove_duplicates: true
+      restart_on_freeze: true
+      sleep_delay: "Never"
+      notification_center: false
+      local_timemachine: false
+      hibernate_mode: 0
+      remove_sleepimage: false
+      sudden_motion_sensor: false
+      timezone: "Europe/Berlin"
+      itunes_media_keys: true
+      hide_library_folder: false
+      superdrive: true
+      spotlight_hide_tray_icon: false
+      spotlight_reindex: false
   roles:
     - { role: ansible-macos-settings }

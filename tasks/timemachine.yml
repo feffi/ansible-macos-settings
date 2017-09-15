@@ -1,0 +1,10 @@
+---
+- name: "Disable local Time Machine snapshots"
+  become: true
+  command: "tmutil disablelocal"
+  when: not macos_settings.local_timemachine
+
+- name: "Enable local Time Machine snapshots"
+  become: true
+  command: "tmutil enablelocal"
+  when: macos_settings.local_timemachine

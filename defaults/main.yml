@@ -54,15 +54,8 @@ macos_settings:
   # Enable the MacBook Air SuperDrive on any Mac
   superdrive: true
 
+  # Hide Spotlight tray-icon (and subsequent helper)
+  spotlight_hide_tray_icon: false
 
-
-
-
-
-
-
-
-
-
-
-
+  # Rebuild the spotlight index from scratch
+  spotlight_reindex: false
