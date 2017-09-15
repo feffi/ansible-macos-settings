@@ -2,7 +2,7 @@
 - name: "Set system boot up chime volume to {{ macos_settings.boot_volume }}"
   become: true
   command: "nvram SystemAudioVolume={{ macos_settings.boot_volume }}"
-  when: macos_settings.boot_volume
+  when: macos_settings.boot_volume != false
 
 - name: Restart automatically if the computer freezes
   become: true
