@@ -5,10 +5,6 @@
 
 - include: boot.yml
 - include: hardware.yml
-- include: sleep.yml
-- include: services.yml
 - include: utils.yml
 - include: spotlight.yml
-- include: timemachine.yml
 - include: itunes.yml
-- include: finder.yml
