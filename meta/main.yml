@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Kevin Wennemuth
-  description: Ansible role to manage personal settings in macOS.
+  description: Ansible role to manage settings in macOS.
   license: MIT
   min_ansible_version: 2.3
   platforms:
