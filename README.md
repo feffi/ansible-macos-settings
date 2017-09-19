@@ -41,9 +41,6 @@ macos_settings:
   # Start/stop iTunes listening to the keyboard media keys
   itunes_media_keys: true
 
-  # Enable the MacBook Air SuperDrive on any Mac
-  superdrive: true
-
   # Hide Spotlight tray-icon (and subsequent helper)
   spotlight_hide_tray_icon: false
 
@@ -66,7 +63,6 @@ None.
           sudden_motion_sensor: false
           timezone: "Europe/Berlin"
           itunes_media_keys: true
-          superdrive: true
           spotlight_hide_tray_icon: false
           spotlight_reindex: false
 
@@ -86,7 +82,6 @@ Or with local parameters:
               sudden_motion_sensor: false,
               timezone: "Europe/Berlin",
               itunes_media_keys: true,
-              superdrive: true,
               spotlight_hide_tray_icon: false,
               spotlight_reindex: false
             }

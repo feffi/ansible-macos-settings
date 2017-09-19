@@ -18,9 +18,6 @@ macos_settings:
   # Start/stop iTunes listening to the keyboard media keys
   itunes_media_keys: true
 
-  # Enable the MacBook Air SuperDrive on any Mac
-  superdrive: true
-
   # Hide Spotlight tray-icon (and subsequent helper)
   spotlight_hide_tray_icon: false
 

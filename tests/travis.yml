@@ -10,7 +10,6 @@
       sudden_motion_sensor: false
       timezone: "Europe/Berlin"
       itunes_media_keys: true
-      superdrive: true
       spotlight_hide_tray_icon: false
       spotlight_reindex: false
   roles:

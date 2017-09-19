@@ -13,13 +13,3 @@
   become: true
   command: "systemsetup -setrestartfreeze off"
   when: not macos_settings.restart_on_freeze
-
-- name: "Enable the MacBook Air SuperDrive on any Mac"
-  become: true
-  command: 'nvram boot-args="mbasd=1"'
-  when: macos_settings.superdrive
-
-- name: "Disable the MacBook Air SuperDrive on any Mac"
-  become: true
-  command: 'nvram boot-args="mbasd=0"'
-  when: macos_settings.superdrive
