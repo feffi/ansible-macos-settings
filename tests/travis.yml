@@ -8,7 +8,6 @@
       restart_on_freeze: true
       notification_center: false
       sudden_motion_sensor: false
-      timezone: "Europe/Berlin"
       itunes_media_keys: true
       spotlight_hide_tray_icon: false
       spotlight_reindex: false

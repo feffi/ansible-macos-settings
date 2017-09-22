@@ -35,9 +35,6 @@ macos_settings:
   # Enable or disable sudden motion sensor (not userfull on SSD/Flash drives)
   sudden_motion_sensor: false
 
-  # Set the timezone; see `systemsetup -listtimezones` for other values
-  timezone: "Europe/Berlin"
-
   # Start/stop iTunes listening to the keyboard media keys
   itunes_media_keys: true
 
@@ -61,7 +58,6 @@ None.
           restart_on_freeze: true
           notification_center: false
           sudden_motion_sensor: false
-          timezone: "Europe/Berlin"
           itunes_media_keys: true
           spotlight_hide_tray_icon: false
           spotlight_reindex: false
@@ -80,7 +76,6 @@ Or with local parameters:
               restart_on_freeze: true,
               notification_center: false,
               sudden_motion_sensor: false,
-              timezone: "Europe/Berlin",
               itunes_media_keys: true,
               spotlight_hide_tray_icon: false,
               spotlight_reindex: false
