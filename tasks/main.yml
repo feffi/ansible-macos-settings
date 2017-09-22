@@ -5,6 +5,5 @@
 
 - include: boot.yml
 - include: hardware.yml
-- include: utils.yml
 - include: spotlight.yml
 - include: itunes.yml

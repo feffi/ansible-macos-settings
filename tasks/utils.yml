@@ -1,5 +1,0 @@
----
-- name: "Set the timezone to {{ macos_settings.timezone }}"
-  become: true
-  command: 'systemsetup -settimezone "{{ macos_settings.timezone }}" > /dev/null'
-  when: macos_settings.timezone
