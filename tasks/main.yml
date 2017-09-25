@@ -3,7 +3,7 @@
     msg: "{{ vars[(role_path | basename).split('.')[-1].replace('-','_').replace('ansible_','')] }}"
   when: DEBUG | d() | bool
 
-- include: boot.yml
-- include: hardware.yml
-- include: spotlight.yml
-- include: itunes.yml
+- include_tasks: boot.yml
+- include_tasks: hardware.yml
+- include_tasks: spotlight.yml
+- include_tasks: itunes.yml
