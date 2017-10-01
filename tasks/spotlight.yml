@@ -1,13 +1,10 @@
 ---
-- name: "Hide Spotlight tray-icon"
+- name: "Set Spotlight tray-icon mode to {{ macos_settings.spotlight_hide_tray_icon | ternary('0600', '0755') }}"
   become: true
-  command: "chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
+  file:
+    path: "/System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
+    mode: "{{ macos_settings.spotlight_hide_tray_icon | ternary('0600', '0755') }}"
   when: macos_settings.spotlight_hide_tray_icon
-
-- name: "Show Spotlight tray-icon"
-  become: true
-  command: "chmod 755 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search"
-  when: not macos_settings.spotlight_hide_tray_icon
 
 - name: "Load new settings before rebuilding the index"
   become: true

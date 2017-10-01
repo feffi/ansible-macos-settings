@@ -3,13 +3,3 @@
   become: true
   command: "nvram SystemAudioVolume={{ macos_settings.boot_volume }}"
   when: macos_settings.boot_volume != false
-
-- name: Restart automatically if the computer freezes
-  become: true
-  command: "systemsetup -setrestartfreeze on"
-  when: macos_settings.restart_on_freeze
-
-- name: Do NOT restart automatically if the computer freezes
-  become: true
-  command: "systemsetup -setrestartfreeze off"
-  when: not macos_settings.restart_on_freeze

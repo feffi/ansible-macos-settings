@@ -26,9 +26,6 @@ macos_settings:
   # Set system boot up chime volume
   boot_volume: false #"00%"
 
-  # Restart automatically if the computer freezes
-  restart_on_freeze: true
-
   # Disable Notification Center and remove the menu bar icon
   notification_center: false
 
@@ -55,7 +52,6 @@ None.
       vars:
         macos_settings:
           boot_volume: false
-          restart_on_freeze: true
           notification_center: false
           sudden_motion_sensor: false
           itunes_media_keys: true
@@ -73,7 +69,6 @@ Or with local parameters:
         - { role: feffi.macos-settings,
             macos_settings: {
               boot_volume: false,
-              restart_on_freeze: true,
               notification_center: false,
               sudden_motion_sensor: false,
               itunes_media_keys: true,

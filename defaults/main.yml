@@ -3,9 +3,6 @@ macos_settings:
   # Set system boot up chime volume
   boot_volume: false #"00%"
 
-  # Restart automatically if the computer freezes
-  restart_on_freeze: true
-
   # Disable Notification Center and remove the menu bar icon
   notification_center: false
 

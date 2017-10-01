@@ -1,10 +1,10 @@
 ---
-- name: "Enable sudden motion sensor"
-  become: true
-  command: "pmset -a sms 1"
-  when: macos_settings.sudden_motion_sensor
+- name: Get old pmset 'sudden motion sensor' value
+  shell: "pmset -g | grep \"^\\s*sms.*\" | awk -F \" \" '{ print $2 }'"
+  register: pmset_old
+  changed_when: false
 
-- name: "Disable sudden motion sensor"
+- name: "Set sudden motion sensor mode to {{ macos_settings.sudden_motion_sensor }}"
   become: true
-  command: "pmset -a sms 0"
-  when: not macos_settings.sudden_motion_sensor
+  command: "pmset -a sms {{ macos_settings.sudden_motion_sensor | ternary(1, 0) }}"
+  when: "macos_settings.sudden_motion_sensor and (pmset_old.stdout | string ) != (macos_settings.sudden_motion_sensor | ternary(1, 0) | string ) and 'sms' in pmset_cap.stdout"
